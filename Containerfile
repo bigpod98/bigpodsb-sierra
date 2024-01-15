@@ -6,7 +6,7 @@ FROM quay.io/fedora/fedora-coreos:stable
 COPY etc /etc/
 COPY --from=downloader /ganto-lxc4-fedora-39.repo /etc/yum.repos.d/ganto-lxc4-fedora-39.repo
 RUN rpm-ostree install tailscale libvirt qemu qemu-user-static qemu-user-binfmt cockpit-bridge cockpit-system cockpit-networkmanager cockpit-selinux cockpit-storaged \ 
-    cockpit-podman cockpit-machines cockpit-pcp htop lxc-libs squashfs-tools incus incus-agent
+    cockpit-podman cockpit-machines cockpit-pcp htop lxc-libs squashfs-tools
 RUN systemctl enable tailscaled cockpit-server.service
 RUN rm -rf /tmp/* /var/*
 RUN ostree container commit
